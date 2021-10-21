@@ -1,0 +1,39 @@
+minimum_cumulusci_version: '3.42.0'
+project:
+    name: NPSPwithDLRS
+    package:
+        name: NPSPwithDLRS
+        api_version: '52.0'
+    dependencies:
+        - namespace: dlrs
+          version: 2.14
+        - github: 'https://github.com/SalesforceFoundation/NPSP'
+    git:
+        default_branch: 'main'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/NPSPwithDLRS/tests
+            options:
+                outputdir: robot/NPSPwithDLRS/results
+
+    robot_testdoc:
+        options:
+            path: robot/NPSPwithDLRS/tests
+            output: robot/NPSPwithDLRS/doc/NPSPwithDLRS_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
+
+flows:
+    config_dev:
+         steps:
+             3:
+                task: load_dataset
+
+    dependencies:
+         steps:
+             3: npsp:deploy_trial_config
