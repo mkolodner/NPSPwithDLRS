@@ -36,4 +36,5 @@ flows:
 
     dependencies:
          steps:
-             3: npsp:deploy_trial_config
+             3: 
+               task: npsp:deploy_trial_config
