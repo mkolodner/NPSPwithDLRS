@@ -12,6 +12,10 @@ project:
         default_branch: 'main'
     source_format: sfdx
 
+sources:
+    npsp:
+        github: https://github.com/SalesforceFoundation/NPSP
+
 tasks:
     robot:
         options:
